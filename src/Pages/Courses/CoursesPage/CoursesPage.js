@@ -8,10 +8,10 @@ const CoursesPage = () => {
         <div>
             <Container>
                 <Row>
-                    <Col className='lg:col-3 bg-secondary'>
+                    <Col lg='3' className='bg-secondary'>
                         <CoursesSideNav></CoursesSideNav>
                     </Col>
-                    <Col className='lg:col-9 bg-primary'>
+                    <Col lg='9' className='bg-primary'>
                         <Courses></Courses>
                     </Col>
                 </Row>
