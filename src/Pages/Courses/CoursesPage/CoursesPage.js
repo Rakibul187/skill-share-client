@@ -8,7 +8,7 @@ const CoursesPage = () => {
         <div>
             <Container>
                 <Row>
-                    <Col lg='3' className='bg-secondary'>
+                    <Col lg='3' >
                         <CoursesSideNav></CoursesSideNav>
                     </Col>
                     <Col lg='9' className='bg-primary'>
