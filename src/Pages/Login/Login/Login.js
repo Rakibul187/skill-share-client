@@ -1,5 +1,5 @@
 import { GoogleAuthProvider } from 'firebase/auth';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Container } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -8,7 +8,9 @@ import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 
 const Login = () => {
+    const [error, setError] = useState('')
     const { signIn, providerLogin } = useContext(AuthContext)
+
 
     const googleProvider = new GoogleAuthProvider()
 
@@ -22,17 +24,25 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user)
+                setError('')
                 form.reset()
             })
-            .catch(error => console.error(error))
+            .catch(error => {
+                console.error(error)
+                setError(error.message)
+            })
     }
     const handleGoogleSignIn = () => {
         providerLogin(googleProvider)
             .then(result => {
                 const user = result.user;
                 console.log(user)
+
             })
-            .catch(error => console.error(error))
+            .catch(error =>
+                console.error(error)
+
+            )
     }
 
     return (
@@ -54,7 +64,7 @@ const Login = () => {
                     Login
                 </Button>
                 <Form.Text className="text-danger ms-3">
-                    We'll never share your email with anyone else.
+                    {error}
                 </Form.Text>
                 <hr className='w-25 text-align-center'></hr>
                 <Button onClick={handleGoogleSignIn} className='mb-2' variant='outline-primary'><FaGoogle /> SignIn With Google</Button>
