@@ -6,10 +6,11 @@ export const AuthContext = createContext();
 const auth = getAuth(app)
 
 const AuthProvider = ({ children }) => {
-    // const user = { displayName: 'rakib' }
     const [user, setUser] = useState(null)
+    const [loading, setLoading] = useState(true)
 
     const providerLogin = (provider) => {
+        setLoading(true)
         return signInWithPopup(auth, provider)
     }
 
@@ -17,6 +18,7 @@ const AuthProvider = ({ children }) => {
         const unsubsCribe = onAuthStateChanged(auth, (currentUser) => {
             console.log('inside authstate change', currentUser)
             setUser(currentUser)
+            setLoading(false)
         })
 
         return () => {
@@ -25,19 +27,22 @@ const AuthProvider = ({ children }) => {
     }, [])
 
     const createUser = (email, password) => {
+        setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
 
     const signIn = (email, password) => {
+        setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
 
     const logOut = () => {
+        setLoading(true)
         return signOut(auth)
     }
 
-    const authInfo = { user, createUser, signIn, providerLogin, logOut }
+    const authInfo = { user, createUser, signIn, providerLogin, logOut, loading }
 
     return (
         <AuthContext.Provider value={authInfo}>
