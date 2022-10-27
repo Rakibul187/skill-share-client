@@ -1,9 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../layout/Main";
-import Courses from "../../Pages/Courses/Courses/Courses";
+import CourseDetails from "../../Pages/Courses/CourseDetails/CourseDetails";
 import CoursesPage from "../../Pages/Courses/CoursesPage/CoursesPage";
 import CoursesSideNav from "../../Pages/Courses/CoursesSideNav/CoursesSideNav";
 import Home from "../../Pages/Home/Home";
+import Login from "../../Pages/Login/Login/Login";
+import Register from "../../Pages/Login/Register/Register";
 import Footer from "../../Pages/Shared/Footer/Footer";
 
 export const routes = createBrowserRouter([
@@ -14,17 +16,36 @@ export const routes = createBrowserRouter([
                     path: '/', element: <Home></Home>
                 },
                 {
-                    path: '/CoursesPage', element: <CoursesPage></CoursesPage>
+                    path: '/courses',
+                    loader: () => fetch('http://localhost:5000/courses'),
+                    element: <CoursesPage></CoursesPage>
                 },
                 {
-                    path: '/coursesSideNav/:id', element: <CoursesSideNav></CoursesSideNav>
-                },
-                {
-                    path: '/courses', element: <Courses></Courses>
+                    path: '/coursesnav/:id', element: <CoursesSideNav></CoursesSideNav>
                 },
                 {
                     path: '/footer', element: <Footer></Footer>
                 },
+                {
+                    path: '/courses/:id',
+                    loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`),
+                    element: <CourseDetails></CourseDetails>
+                },
+                {
+                    path: '/login', element: <Login></Login>
+                },
+                {
+                    path: '/register', element: <Register></Register>
+                }
             ])
+    },
+    {
+        path: '*',
+        element: <h1>This is error page !!</h1>
     }
 ])
+
+
+
+
+
