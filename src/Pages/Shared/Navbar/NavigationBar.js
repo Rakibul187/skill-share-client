@@ -39,13 +39,13 @@ const NavigationBar = () => {
                                         </>
                                 }
                             </div >
-                            <div>
-                                {
-                                    user?.photoURL ?
-                                        <Image src={user?.photoURL}></Image>
-                                        :
-                                        <FaUser></FaUser>
-                                }
+                            <div>{
+
+                                user?.photoURL ?
+                                    <Image roundedCircle className='ms-2' style={{ height: '30px' }} src={user?.photoURL}></Image>
+                                    :
+                                    <FaUser></FaUser>
+                            }
                             </div>
                         </Nav>
                     </Navbar.Collapse>
