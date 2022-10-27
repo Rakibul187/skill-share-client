@@ -4,7 +4,7 @@ import { Container } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { FaGoogle } from 'react-icons/fa';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 
@@ -52,27 +52,31 @@ const Login = () => {
     }
 
     return (
-        <Container className='w-50'>
-            <Form onSubmit={handleSubmit}>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Your Email address</Form.Label>
-                    <Form.Control name='email' type="email" placeholder="Enter email" required />
-                </Form.Group>
+        <div className='bg-light pt-5'>
+            <Container style={{ width: "500px" }} className=' bg-light p-5'>
+                <h3 className='text-primary pb-2'>Please Login Here</h3>
+                <Form onSubmit={handleSubmit}>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Label>Your Email address</Form.Label>
+                        <Form.Control name='email' type="email" placeholder="Enter email" required />
+                    </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Your Password</Form.Label>
-                    <Form.Control name='password' type="password" placeholder=" Enter Password" required />
-                </Form.Group>
-                <Button variant="primary" type="submit">
-                    Login
-                </Button>
-                <Form.Text className="text-danger ms-3">
-                    {error}
-                </Form.Text>
-                <hr className='w-25 text-align-center'></hr>
-                <Button onClick={handleGoogleSignIn} className='mb-2' variant='outline-primary'><FaGoogle /> SignIn With Google</Button>
-            </Form>
-        </Container>
+                    <Form.Group className="mb-3" controlId="formBasicPassword">
+                        <Form.Label>Your Password</Form.Label>
+                        <Form.Control name='password' type="password" placeholder=" Enter Password" required />
+                    </Form.Group>
+                    <span className='d-block'>If You Dont Register Before? Please <Link to='/register'>Register</Link></span>
+                    <Button variant="primary" className='w-25 mt-2' type="submit">
+                        Login
+                    </Button>
+                    <Form.Text className="text-danger ms-3">
+                        {error}
+                    </Form.Text>
+                    <p className='w-50 ms-5 ps-5'>< hr /></p>
+                    <Button onClick={handleGoogleSignIn} className='mb-2 w-100' variant='outline-primary'><FaGoogle /> SignIn With Google</Button>
+                </Form>
+            </Container>
+        </div>
     );
 };
 

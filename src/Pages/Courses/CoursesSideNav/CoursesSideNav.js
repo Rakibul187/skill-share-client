@@ -11,7 +11,7 @@ const CoursesSideNav = () => {
     }, [])
     return (
         <div>
-            <h3>Our Provided Courses {categories?.length}</h3>
+            <h3 className='text-secondary'>Our Provided Courses List</h3>
             {
                 categories.map(category =>
                     // console.log(category)

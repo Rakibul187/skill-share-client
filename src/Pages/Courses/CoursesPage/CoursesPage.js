@@ -16,13 +16,12 @@ const CoursesPage = () => {
                     </Col>
                     <Col lg='9'>
                         <Row>
-                            <Col lg='flex'>
+                            <Col style={{}} className='d-flex flex-wrap '>
                                 {
                                     courses.map(course => <Courses key={course._id} course={course}></Courses>)
                                 }
                             </Col>
                         </Row>
-                        {/* <Courses key={courses.id} courses={courses}></Courses> */}
                     </Col>
                 </Row>
             </Container>

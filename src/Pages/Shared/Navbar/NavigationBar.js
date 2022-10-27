@@ -18,7 +18,7 @@ const NavigationBar = () => {
             .catch(e => console.error(e))
     }
     return (
-        <Navbar collapseOnSelect expand="lg" className='mb-4 py-3' bg="dark" variant="light">
+        <Navbar collapseOnSelect expand="lg" className='py-4' bg="dark" variant="light">
             <Container>
                 <Link className='h4 logo text-danger' to="/">SkillShare</Link>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -27,16 +27,14 @@ const NavigationBar = () => {
                     <Nav className='h6 underLineLink'>
                         <Link className='me-4' to='/'>Home</Link>
                         <Link className='me-4 pointer' to='/courses'>Courses</Link>
-                        <Link className='me-4'>FAQ</Link>
+                        <Link className='me-4' to="/faq">FAQ</Link>
                         <Link className='me-4'>Blog</Link>
                         <div >
                             {
                                 user?.uid ?
 
-                                    <>
-                                        <span className='me-2'>{user?.displayName}</span>
-                                        <Button className='mb-4' variant="outline-info" onClick={handleLogOut}>Log out</Button>
-                                    </>
+                                    <Button className='mb-4 me2' variant="outline-info" onClick={handleLogOut}>Log out</Button>
+
                                     :
                                     <>
                                         <Link className='me-4' to='/login'>Login</Link>
@@ -52,6 +50,7 @@ const NavigationBar = () => {
                                 <FaUser></FaUser>
                         }
                         </div>
+
                     </Nav>
                 </Navbar.Collapse>
             </Container>

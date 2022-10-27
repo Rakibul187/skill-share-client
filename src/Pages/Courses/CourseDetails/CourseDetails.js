@@ -8,15 +8,15 @@ const CourseDetails = () => {
     const course = useLoaderData()
     return (
         // style={{ width: '18rem' }}
-        <Container>
-            <Card >
+        <Container className='items-center'>
+            <Card style={{ padding: '8px', width: '500px', margin: '20px 0 auto' }}>
                 <Card.Img variant="top" src={course.img} />
                 <Card.Body>
                     <Card.Title>{course.name}</Card.Title>
                     <Card.Text>
                         {course.details}
                     </Card.Text>
-                    <Button variant="dark"><Link to='/courses'>Back To Courses</Link></Button>
+                    <Button className='detailsButton' variant="outline-info"><Link to='/courses'>Back To Courses</Link></Button>
                 </Card.Body>
             </Card>
         </Container>
