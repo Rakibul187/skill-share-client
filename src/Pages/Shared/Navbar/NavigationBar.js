@@ -28,7 +28,7 @@ const NavigationBar = () => {
                         <Link className='me-4' to='/'>Home</Link>
                         <Link className='me-4 pointer' to='/courses'>Courses</Link>
                         <Link className='me-4' to="/faq">FAQ</Link>
-                        <Link className='me-4 '>Blog</Link>
+                        <Link className='me-4 ' to='/blog'>Blog</Link>
                         <div className='d-flex align-items-center mt-0'>
                             <div >
                                 {
