@@ -8,7 +8,7 @@ const Courses = ({ course }) => {
     return (
         <div>
             <Card style={{ width: '400px', margin: '25px 40px 15px', padding: '7px' }}>
-                <Card.Img variant="top" style={{ width: "100%", height: "250px" }} src={course.img} />
+                <Card.Img variant="top" style={{ width: "100%", height: "200px" }} src={course.img} />
                 <Card.Body>
                     <Card.Title>{course.title.length > 60 ? course.title.slice(0, 60) : course.title}</Card.Title>
                     <Card.Text>
