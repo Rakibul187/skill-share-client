@@ -5,11 +5,29 @@ import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import './NavigationBar.css'
 import { FaBuffer, FaUser } from 'react-icons/fa';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 
 const NavigationBar = () => {
+
+    const [theme, setTheme] = useState("light-theme")
+
+    const toggleTheme = () => {
+        if (theme === "light-theme") {
+            setTheme("dark-theme")
+        }
+        else {
+            setTheme("light-theme")
+        }
+    }
+
+    useEffect(() => {
+        document.body.className = theme;
+
+    }, [theme])
+
+
     const { user, logOut } = useContext(AuthContext);
 
     const handleLogOut = () => {
@@ -52,7 +70,7 @@ const NavigationBar = () => {
                             }
                             </div>
                         </div>
-                        {/* d-flex align-items-center */}
+                        <button onClick={() => toggleTheme()} className='rounded ms-2'>Toggle</button>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
