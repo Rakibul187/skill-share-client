@@ -10,8 +10,8 @@ const CoursesPage = () => {
     return (
         <div>
             <Container>
-                <Row>
-                    <Col lg='3' >
+                <Row className='mt-3'>
+                    <Col lg='3' className='mt-5' >
                         <CoursesSideNav></CoursesSideNav>
                     </Col>
                     <Col lg='9'>

@@ -14,6 +14,11 @@ const AuthProvider = ({ children }) => {
         return signInWithPopup(auth, provider)
     }
 
+    const githubSignin = (provider) => {
+        setLoading(true)
+        return signInWithPopup(auth, provider)
+    }
+
     useEffect(() => {
         const unsubsCribe = onAuthStateChanged(auth, (currentUser) => {
             console.log('inside authstate change', currentUser)
@@ -42,7 +47,7 @@ const AuthProvider = ({ children }) => {
         return signOut(auth)
     }
 
-    const authInfo = { user, createUser, signIn, providerLogin, logOut, loading }
+    const authInfo = { githubSignin, user, createUser, signIn, providerLogin, logOut, loading }
 
     return (
         <AuthContext.Provider value={authInfo}>

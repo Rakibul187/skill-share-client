@@ -1,4 +1,4 @@
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { Container } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
@@ -10,7 +10,7 @@ import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const Login = () => {
     const [error, setError] = useState('')
-    const { signIn, providerLogin } = useContext(AuthContext)
+    const { signIn, providerLogin, githubSignin } = useContext(AuthContext)
 
     const navigate = useNavigate()
     const location = useLocation();
@@ -18,6 +18,7 @@ const Login = () => {
     const from = location.state?.from?.pathname || '/'
 
     const googleProvider = new GoogleAuthProvider()
+    const gitProvider = new GithubAuthProvider()
 
     const handleSubmit = event => {
         event.preventDefault()
@@ -51,9 +52,18 @@ const Login = () => {
             )
     }
 
+    const handleGithubSignIn = () => {
+        githubSignin(gitProvider)
+            .then((result) => {
+                const user = result.user;
+                console.log(user)
+            })
+            .catch(error => console.error(error))
+    }
+
     return (
         <div className='bg-light pt-5'>
-            <Container style={{ width: "500px" }} className=' bg-light p-5'>
+            <Container style={{ width: "500px", marginBottom: '150px' }} className=' bg-light p-5'>
                 <h3 className='text-primary pb-2'>Please Login Here</h3>
                 <Form onSubmit={handleSubmit}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -65,16 +75,16 @@ const Login = () => {
                         <Form.Label>Your Password</Form.Label>
                         <Form.Control name='password' type="password" placeholder=" Enter Password" required />
                     </Form.Group>
-                    <span className='d-block'>If You Dont Register Before? Please <Link to='/register'>Register</Link></span>
-                    <Button variant="primary" className='w-25 mt-2' type="submit">
+                    <span className='d-block'>If You didn't Register Before? Please <Link to='/register'>Register</Link></span>
+                    <Button variant="primary" className='w-100  mt-3 mb-3' type="submit">
                         Login
                     </Button>
                     <Form.Text className="text-danger ms-3">
                         {error}
                     </Form.Text>
-                    <p className='w-50 ms-5 ps-5'>< hr /></p>
-                    <Button onClick={handleGoogleSignIn} className='mb-2 w-100' variant='outline-primary'><FaGoogle /> SignIn With Google</Button>
-                    <Button className='mb-2 w-100' variant='outline-dark'><FaGithub /> SignIn With Google</Button>
+                    <p className='w-50 ms-5 ps-5 text-center'>or</p>
+                    <Button onClick={handleGoogleSignIn} style={{ width: "190px", marginRight: "12px" }} className='mb-2' variant='outline-primary'><FaGoogle /> SignIn With Google</Button>
+                    <Button onClick={handleGithubSignIn} style={{ width: "190px" }} className='mb-2' variant='outline-dark'><FaGithub /> SignIn With GitHub</Button>
                 </Form>
             </Container>
         </div>

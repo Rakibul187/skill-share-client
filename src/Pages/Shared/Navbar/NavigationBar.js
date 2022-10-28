@@ -28,29 +28,31 @@ const NavigationBar = () => {
                         <Link className='me-4' to='/'>Home</Link>
                         <Link className='me-4 pointer' to='/courses'>Courses</Link>
                         <Link className='me-4' to="/faq">FAQ</Link>
-                        <Link className='me-4'>Blog</Link>
-                        <div >
-                            {
-                                user?.uid ?
+                        <Link className='me-4 '>Blog</Link>
+                        <div className='d-flex align-items-center mt-0'>
+                            <div >
+                                {
+                                    user?.uid ?
 
-                                    <Button className='mb-4 me2' variant="outline-info" onClick={handleLogOut}>Log out</Button>
+                                        <Button className='mb-2 ' variant="outline-info" onClick={handleLogOut}>Log out</Button>
 
+                                        :
+                                        <>
+                                            <Link className='me-4' to='/login'>Login</Link>
+                                            <Link className='me-2' to='/register'>Register</Link>
+                                        </>
+                                }
+                            </div >
+                            <div>{
+
+                                user?.photoURL ?
+                                    <p data-toggle="tooltip" data-placement="top" title={user?.displayName}><Image roundedCircle className='ms-2' style={{ height: '30px' }} src={user?.photoURL}></Image></p>
                                     :
-                                    <>
-                                        <Link className='me-4' to='/login'>Login</Link>
-                                        <Link className='me-2' to='/register'>Register</Link>
-                                    </>
+                                    <FaUser className='text-light'></FaUser>
                             }
-                        </div >
-                        <div>{
-
-                            user?.photoURL ?
-                                <Image roundedCircle className='ms-2' style={{ height: '30px' }} src={user?.photoURL}></Image>
-                                :
-                                <FaUser className='text-light'></FaUser>
-                        }
+                            </div>
                         </div>
-
+                        {/* d-flex align-items-center */}
                     </Nav>
                 </Navbar.Collapse>
             </Container>

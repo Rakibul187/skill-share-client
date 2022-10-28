@@ -36,9 +36,9 @@ const Register = () => {
             <Container className='w-25 mb-5'>
                 <h3 className='text-primary '>Please Register Here</h3>
                 <Form onSubmit={handleSubmit}>
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Group className="mb-3" controlId="formBasicName">
                         <Form.Label>Your Name</Form.Label>
-                        <Form.Control name='name' type="name" placeholder="Enter Your Name" />
+                        <Form.Control name='name' type="name" placeholder="Enter Your Full Name" />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Your Photo URL</Form.Label>
@@ -61,7 +61,7 @@ const Register = () => {
                         Register
                     </Button>
                     <Form.Text className="text-danger ms-3
-                    mb-5">
+                    mb-5" >
                         {error}
                     </Form.Text>
                 </Form>
