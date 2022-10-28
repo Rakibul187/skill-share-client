@@ -63,8 +63,8 @@ const Login = () => {
     }
 
     return (
-        <div className='bg-light pt-5'>
-            <Container style={{ width: "500px", marginBottom: '150px' }} className=' bg-light p-5'>
+        <div className='pt-5'>
+            <Container style={{ width: "500px", marginBottom: '150px' }} className=' p-5'>
                 <h3 className='text-primary pb-2'>Please Login Here</h3>
                 <Form onSubmit={handleSubmit}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">

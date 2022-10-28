@@ -8,8 +8,8 @@ const Blogs = () => {
     return (
         // d-flex justify-content-center
 
-        <div className='d-flex justify-content-center bg-light'>
-            <div style={{ width: '60%', height: "100vh", paddingLeft: "50px" }} className='bg-light  pt-5'>
+        <div className='d-flex justify-content-center '>
+            <div style={{ width: '60%', height: "100vh", paddingLeft: "50px" }} className='pt-5'>
                 <Container className=' ms-5 '>
                     <h2 className='mb-4 text-info'>Some Important Question & Answer</h2>
                     <div className='bg-light' style={{ maxWidth: "1000px", marginBottom: '15px', borderLeft: '5px solid grey' }}>
