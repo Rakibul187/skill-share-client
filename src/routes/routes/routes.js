@@ -9,6 +9,7 @@ import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login/Login";
 import Register from "../../Pages/Login/Register/Register";
 import Footer from "../../Pages/Shared/Footer/Footer";
+import PrivateRoute from "../PrivateRoute/PrivateRoute"
 
 
 
@@ -45,7 +46,7 @@ export const routes = createBrowserRouter([
                     path: '/faq', element: <FAQ />
                 },
                 {
-                    path: '/checkout', element: <Checkout></Checkout>
+                    path: '/checkout', element: <PrivateRoute><Checkout></Checkout></PrivateRoute>
                 }
             ])
     },
