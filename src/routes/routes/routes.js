@@ -23,7 +23,7 @@ export const routes = createBrowserRouter([
                 },
                 {
                     path: '/courses',
-                    loader: () => fetch('http://localhost:5000/courses'),
+                    loader: () => fetch('https://skill-share-server.vercel.app/courses'),
                     element: <CoursesPage></CoursesPage>
                 },
                 {
@@ -34,7 +34,7 @@ export const routes = createBrowserRouter([
                 },
                 {
                     path: '/courses/:id',
-                    loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`),
+                    loader: ({ params }) => fetch(`https://skill-share-server.vercel.app/courses/${params.id}`),
                     element: <CourseDetails></CourseDetails>
                 },
                 {
@@ -47,7 +47,8 @@ export const routes = createBrowserRouter([
                     path: '/faq', element: <FAQ />
                 },
                 {
-                    path: '/checkout',
+                    path: '/checkout/:id',
+                    loader: ({ params }) => fetch(`https://skill-share-server.vercel.app/courses/${params.id}`),
                     element: <PrivateRoute><Checkout></Checkout></PrivateRoute>
                 },
                 {

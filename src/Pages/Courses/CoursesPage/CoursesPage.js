@@ -6,7 +6,7 @@ import CoursesSideNav from '../CoursesSideNav/CoursesSideNav';
 
 const CoursesPage = () => {
     const courses = useLoaderData()
-    console.log(courses)
+    // console.log(courses)
     return (
         <div>
             <Container>

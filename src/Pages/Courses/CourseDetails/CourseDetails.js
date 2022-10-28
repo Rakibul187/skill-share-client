@@ -8,7 +8,7 @@ const CourseDetails = () => {
     const course = useLoaderData()
 
     const { fee, duration, start, img, details, name, title } = course;
-    console.log(course)
+    // console.log(course)
 
     return (
         // style={{ width: '18rem' }}
@@ -29,7 +29,7 @@ const CourseDetails = () => {
                     </div>
                     <div className='d-flex justify-content-around mt-4'>
                         <Button className='detailsButton' variant="outline-dark"><Link to='/courses'>Back To Courses</Link></Button>
-                        <Button className='detailsButton' variant="outline-primary"><Link to='/checkout'>Get PreMium </Link></Button>
+                        <Button className='detailsButton' variant="outline-primary"><Link to={`/checkout/${course.category_id}`}>Get PreMium </Link></Button>
                     </div>
                 </Card.Body>
             </Card>

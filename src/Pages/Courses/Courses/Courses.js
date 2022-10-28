@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 
 const Courses = ({ course }) => {
-    console.log(course)
+    // console.log(course)
     return (
         <div>
             <Card style={{ width: '400px', margin: '25px 40px 15px', padding: '7px' }}>
