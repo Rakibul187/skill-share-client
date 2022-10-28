@@ -18,7 +18,7 @@ const NavigationBar = () => {
             .catch(e => console.error(e))
     }
     return (
-        <Navbar collapseOnSelect expand="lg" className='py-4' bg="dark" variant="light">
+        <Navbar collapseOnSelect expand="lg" className='py-3' bg="dark" variant="light">
             <Container>
                 <Link className='h4 logo text-danger' to="/"><FaBuffer></FaBuffer><span className='text-light'>SkillShare</span></Link>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />

@@ -14,8 +14,8 @@ const Checkout = () => {
         toast('Your cancel is confirm!')
     }
     return (
-        <div style={{ width: "100%", height: "50vh", marginBottom: '270px' }} className="d-flex justify-content-center align-items-center ">
-            <div style={{ height: "150x ", width: "700px" }} className="bg-light rounded-3  p-2">
+        <div style={{ width: "100%", height: "50vh", marginBottom: '290px' }} className="d-flex  justify-content-center align-items-center ">
+            <div style={{ height: "150x ", width: "700px" }} className="bg-light rounded-3 shadow  p-2">
                 <h3 className='text-center text-info'>Check Out</h3>
                 <div className='border rounded-2 d-flex justify-content-between align-items-center p-2 '>
                     <div>
