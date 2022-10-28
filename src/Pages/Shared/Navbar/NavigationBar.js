@@ -4,7 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import './NavigationBar.css'
-import { FaUser } from 'react-icons/fa';
+import { FaBuffer, FaUser } from 'react-icons/fa';
 import { useContext } from 'react';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
@@ -20,7 +20,7 @@ const NavigationBar = () => {
     return (
         <Navbar collapseOnSelect expand="lg" className='py-4' bg="dark" variant="light">
             <Container>
-                <Link className='h4 logo text-danger' to="/">SkillShare</Link>
+                <Link className='h4 logo text-danger' to="/"><FaBuffer></FaBuffer><span className='text-light'>SkillShare</span></Link>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto"></Nav>
@@ -47,7 +47,7 @@ const NavigationBar = () => {
                             user?.photoURL ?
                                 <Image roundedCircle className='ms-2' style={{ height: '30px' }} src={user?.photoURL}></Image>
                                 :
-                                <FaUser></FaUser>
+                                <FaUser className='text-light'></FaUser>
                         }
                         </div>
 

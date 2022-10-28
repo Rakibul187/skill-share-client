@@ -32,8 +32,8 @@ const Register = () => {
 
     }
     return (
-        <div className='bg-light pt-5'>
-            <Container className='w-25 '>
+        <div className='bg-light pt-5 mb-5'>
+            <Container className='w-25 mb-5'>
                 <h3 className='text-primary '>Please Register Here</h3>
                 <Form onSubmit={handleSubmit}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -60,7 +60,8 @@ const Register = () => {
                     <Button variant="primary" type="submit">
                         Register
                     </Button>
-                    <Form.Text className="text-danger ms-3">
+                    <Form.Text className="text-danger ms-3
+                    mb-5">
                         {error}
                     </Form.Text>
                 </Form>
